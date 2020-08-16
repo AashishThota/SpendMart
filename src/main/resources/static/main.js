@@ -1651,7 +1651,7 @@ class FormsService {
         this.httpClient = httpClient;
     }
     getCountryList() {
-        const url = "http://localhost:8080/api/countries";
+        const url = "/countries";
         return this.httpClient
             .get(url)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["map"])((response) => response._embedded.countries));
@@ -1673,7 +1673,7 @@ class FormsService {
         return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(data);
     }
     getStates(theCountryCode) {
-        const url = `http://localhost:8080/api/states/search/findByCountryCode?code=${theCountryCode}`;
+        const url = `/states/search/findByCountryCode?code=${theCountryCode}`;
         return this.httpClient
             .get(url)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["map"])((response) => response._embedded.states));
@@ -1711,7 +1711,7 @@ __webpack_require__.r(__webpack_exports__);
 class ProductService {
     constructor(httpClient) {
         this.httpClient = httpClient;
-        this.baseUrl = 'http://localhost:8080/api/products';
+        this.baseUrl = '/products';
     }
     getProductList(categoryId) {
         const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${categoryId}`;
@@ -1725,7 +1725,7 @@ class ProductService {
         return this.httpClient.get(searchUrl);
     }
     getProductCategories() {
-        const categoriesUrl = `http://localhost:8080/api/product-category`;
+        const categoriesUrl = `/product-category`;
         return this.httpClient
             .get(categoriesUrl)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])((response) => response._embedded.productCategory));
